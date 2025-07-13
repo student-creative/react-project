@@ -1,13 +1,80 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Exo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+body{
+
+           line-height: 1.6;
+  
+  font-family: '', sans-serif;
+
+
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    background-color: #F4F9FC;
+     margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+   
+
+}
+.swiper-container {
+  padding: 20px; /* स्वाइपर के चारों ओर padding */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.swiper-slide {
+  margin: 0 15px; /* प्रत्येक स्लाइड के बीच मार्जिन */
+}
+.swiper-pagination {
+  
+ 
+
+}
+/* जब swiper vertical हो, तब pagination dots को नीचे center में दिखाने के लिए */
+.swiper-vertical > .swiper-pagination {
+  right: 0 !important;
+  top: auto !important;
+  bottom: 0 !important; /* dots नीचे 10px ऊपर */
+  left: 0 !important;
+  width: 100% !important;  /* dots पूरा width लें */
+ 
+  display: flex !important;
+ 
+  gap: 10px; /* dots के बीच gap */
+  transform: none !important;
+}
+.swiper-slide {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #cbd5e1; /* Tailwind gray-300 */
+  opacity: 1;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: #223A66;
+}
+p{
+
+  color: rgb(112, 128, 144);
+}
+
+
+.opacity-gradient {
+  background: linear-gradient(to bottom, rgba(45, 59, 54, 1), rgba(45, 59, 54, 0.3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
