@@ -91,7 +91,7 @@ function BookingForm() {
               name="department"
               value={formData.department}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-3 md:py-4 text-sm bg-[#F4F9FC] text-slate-500 md:appearance-none"
+              className="w-full border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-slate-500 appearance-auto md:appearance-none"
               required
             >
               <option value="" disabled>Choose Department</option>
@@ -111,7 +111,7 @@ function BookingForm() {
               name="doctor"
               value={formData.doctor}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-3 md:py-4 text-sm bg-[#F4F9FC] text-slate-500 md:appearance-none"
+              className="w-full border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-slate-500 appearance-auto md:appearance-none"
               required
             >
               <option value="" disabled>Select Doctor</option>
@@ -142,7 +142,7 @@ function BookingForm() {
               name="hour"
               value={formData.hour}
               onChange={handleChange}
-              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 md:appearance-none"
+              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 appearance-auto md:appearance-none"
               required
             >
               <option value="" disabled>HH</option>
@@ -156,7 +156,7 @@ function BookingForm() {
               name="minute"
               value={formData.minute}
               onChange={handleChange}
-              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 md:appearance-none"
+              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 appearance-auto md:appearance-none"
               required
             >
               <option value="" disabled>MM</option>
@@ -169,7 +169,7 @@ function BookingForm() {
               name="ampm"
               value={formData.ampm}
               onChange={handleChange}
-              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 md:appearance-none"
+              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 appearance-auto md:appearance-none"
               required
             >
               <option value="" disabled>AM/PM</option>

@@ -53,17 +53,15 @@ function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
-            <ul className='flex space-x-6 lg:space-x-12   text-black font-roboto'>
+            <ul className='flex space-x-6 lg:space-x-12 text-black font-roboto'>
               <li><Link to="/" className="hover:text-[#E12454] transition font-exo font-semibold">Home</Link></li>
               <li><Link to="/about" className="hover:text-[#E12454] transition font-exo font-semibold">About</Link></li>
               <li><Link to="/services" className="hover:text-[#E12454] transition font-exo font-semibold">Services</Link></li>
 
               {/* Department Dropdown */}
-              <li
-                className="relative group"
-                onMouseEnter={() => setShowDropdown(true)}
-                onMouseLeave={() => setShowDropdown(false)}
-              >
+              <li className="relative group"
+                  onMouseEnter={() => setShowDropdown(true)}
+                  onMouseLeave={() => setShowDropdown(false)}>
                 <div className="flex items-center gap-1 hover:text-[#E12454] cursor-pointer">
                   <span className='font-exo font-semibold'>Department</span>
                   <BiChevronDown />
@@ -77,11 +75,9 @@ function Navbar() {
               </li>
 
               {/* Doctor Dropdown */}
-              <li
-                className="relative group"
-                onMouseEnter={() => setShowDoctorDropdown(true)}
-                onMouseLeave={() => setShowDoctorDropdown(false)}
-              >
+              <li className="relative group"
+                  onMouseEnter={() => setShowDoctorDropdown(true)}
+                  onMouseLeave={() => setShowDoctorDropdown(false)}>
                 <div className="flex items-center gap-1 hover:text-[#E12454] cursor-pointer">
                   <span className='font-exo font-semibold'>Doctor</span>
                   <BiChevronDown />
@@ -96,11 +92,9 @@ function Navbar() {
               </li>
 
               {/* Blog Dropdown */}
-              <li
-                className="relative group"
-                onMouseEnter={() => setShowBlogDropdown(true)}
-                onMouseLeave={() => setShowBlogDropdown(false)}
-              >
+              <li className="relative group"
+                  onMouseEnter={() => setShowBlogDropdown(true)}
+                  onMouseLeave={() => setShowBlogDropdown(false)}>
                 <div className="flex items-center gap-1 hover:text-[#E12454] cursor-pointer">
                   <span className='font-exo font-semibold'>Blog</span>
                   <BiChevronDown />
@@ -119,15 +113,56 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu with Dropdowns */}
       <div className={`md:hidden bg-white shadow-lg w-full absolute z-[999] transition-all duration-300 ${mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <ul className="p-4 font-exo font-semibold space-y-4">
           <li><Link to="/" className="block py-2 hover:text-[#E12454]">Home</Link></li>
           <li><Link to="/about" className="block py-2 hover:text-[#E12454]">About</Link></li>
           <li><Link to="/services" className="block py-2 hover:text-[#E12454]">Services</Link></li>
-          <li><Link to="/departments" className="block py-2 hover:text-[#E12454]">Departments</Link></li>
-          <li><Link to="/doctor" className="block py-2 hover:text-[#E12454]">Doctor</Link></li>
-          <li><Link to="/blogslidebar" className="block py-2 hover:text-[#E12454]">Blog</Link></li>
+
+          {/* Department Mobile Dropdown */}
+          <li>
+            <div onClick={() => setShowDropdown(!showDropdown)} className="flex justify-between items-center py-2 cursor-pointer hover:text-[#E12454]">
+              <span>Department</span>
+              <BiChevronDown className={`transition-transform ${showDropdown ? 'rotate-180' : ''}`} />
+            </div>
+            {showDropdown && (
+              <ul className="ml-4 text-sm space-y-2">
+                <li><Link to="/departments" className="block hover:text-[#E12454]">Departments</Link></li>
+                <li><Link to="/departmentssingle" className="block hover:text-[#E12454]">Departments Single</Link></li>
+              </ul>
+            )}
+          </li>
+
+          {/* Doctor Mobile Dropdown */}
+          <li>
+            <div onClick={() => setShowDoctorDropdown(!showDoctorDropdown)} className="flex justify-between items-center py-2 cursor-pointer hover:text-[#E12454]">
+              <span>Doctor</span>
+              <BiChevronDown className={`transition-transform ${showDoctorDropdown ? 'rotate-180' : ''}`} />
+            </div>
+            {showDoctorDropdown && (
+              <ul className="ml-4 text-sm space-y-2">
+                <li><Link to="/doctor" className="block hover:text-[#E12454]">Doctor</Link></li>
+                <li><Link to="/doctorsingle" className="block hover:text-[#E12454]">Doctor Single</Link></li>
+                <li><Link to="/appoinment" className="block hover:text-[#E12454]">Appoinment</Link></li>
+              </ul>
+            )}
+          </li>
+
+          {/* Blog Mobile Dropdown */}
+          <li>
+            <div onClick={() => setShowBlogDropdown(!showBlogDropdown)} className="flex justify-between items-center py-2 cursor-pointer hover:text-[#E12454]">
+              <span>Blog</span>
+              <BiChevronDown className={`transition-transform ${showBlogDropdown ? 'rotate-180' : ''}`} />
+            </div>
+            {showBlogDropdown && (
+              <ul className="ml-4 text-sm space-y-2">
+                <li><Link to="/blogslidebar" className="block hover:text-[#E12454]">Blog With Slider</Link></li>
+                <li><Link to="/blogsingle" className="block hover:text-[#E12454]">Blog Single</Link></li>
+              </ul>
+            )}
+          </li>
+
           <li><Link to="/contact" className="block py-2 hover:text-[#E12454]">Contact</Link></li>
         </ul>
       </div>
