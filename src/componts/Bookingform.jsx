@@ -22,7 +22,6 @@ function BookingForm() {
   const [departments, setDepartments] = useState([]);
   const [doctors, setDoctors] = useState([]);
 
-  // Load from localStorage on mount
   useEffect(() => {
     const storedDepartments = JSON.parse(localStorage.getItem('departmentsData')) || [];
     const storedDoctors = JSON.parse(localStorage.getItem('doctorsData')) || [];
@@ -92,7 +91,7 @@ function BookingForm() {
               name="department"
               value={formData.department}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-3 md:py-4 text-sm bg-[#F4F9FC] text-slate-500 appearance-none"
+              className="w-full border border-gray-300 rounded px-3 py-3 md:py-4 text-sm bg-[#F4F9FC] text-slate-500 md:appearance-none"
               required
             >
               <option value="" disabled>Choose Department</option>
@@ -100,7 +99,7 @@ function BookingForm() {
                 <option key={index} value={dept}>{dept}</option>
               ))}
             </select>
-            <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+            <div className="absolute inset-y-0 right-3 hidden md:flex items-center pointer-events-none">
               <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
               </svg>
@@ -112,7 +111,7 @@ function BookingForm() {
               name="doctor"
               value={formData.doctor}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-3 md:py-4 text-sm bg-[#F4F9FC] text-slate-500 appearance-none"
+              className="w-full border border-gray-300 rounded px-3 py-3 md:py-4 text-sm bg-[#F4F9FC] text-slate-500 md:appearance-none"
               required
             >
               <option value="" disabled>Select Doctor</option>
@@ -120,7 +119,7 @@ function BookingForm() {
                 <option key={index} value={doc.name}>{doc.name}</option>
               ))}
             </select>
-            <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+            <div className="absolute inset-y-0 right-3 hidden md:flex items-center pointer-events-none">
               <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
               </svg>
@@ -143,7 +142,7 @@ function BookingForm() {
               name="hour"
               value={formData.hour}
               onChange={handleChange}
-              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700"
+              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 md:appearance-none"
               required
             >
               <option value="" disabled>HH</option>
@@ -157,7 +156,7 @@ function BookingForm() {
               name="minute"
               value={formData.minute}
               onChange={handleChange}
-              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700"
+              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 md:appearance-none"
               required
             >
               <option value="" disabled>MM</option>
@@ -170,7 +169,7 @@ function BookingForm() {
               name="ampm"
               value={formData.ampm}
               onChange={handleChange}
-              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700"
+              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 md:appearance-none"
               required
             >
               <option value="" disabled>AM/PM</option>
