@@ -46,7 +46,7 @@ function Home() {
     const [ref, inView] = useInView({ triggerOnce: true });
 
     return (
-        <div className='overflow-x-hidden'>
+        <div className='w-screen overflow-x-hidden'>
             {/* Hero Section */}
        <div className="slider-image">
   <div className="h-[400px] sm:h-screen relative">
