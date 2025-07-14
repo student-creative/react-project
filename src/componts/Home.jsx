@@ -48,36 +48,38 @@ function Home() {
     return (
         <div className='overflow-x-hidden'>
             {/* Hero Section */}
-            <div className="slider-image">
-                <div className="h-screen relative">
-                    <img 
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
-                        src={require('../img/slider.png')} 
-                        alt="Slider" 
-                    />
+       <div className="slider-image">
+  <div className="h-[400px] sm:h-screen relative">
+    <img 
+      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+      src={require('../img/slider.png')} 
+      alt="Slider" 
+    />
 
-                    <div className="absolute font-exo top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 max-w-[1140px]">
-                        <div 
-                            className="right-side py-12 md:py-24 w-full md:w-[570px] hover:scale-105 transition-transform duration-500"
-                            data-aos="fade-right"
-                        >
-                            <div className="bg-[#E12454] w-10 h-1 mb-3"></div>
-                            <span className="text-sm md:text-base text-slate-500 uppercase font-roboto">
-                                Total Health care solution
-                            </span>
-                            <h1 className='capitalize my-3 md:my-5 text-3xl md:text-5xl lg:text-6xl font-bold font-exo text-[#223A66]'>
-                                Your most trusted health partner
-                            </h1>
-                            <p className='pr-0 md:pr-10 mb-3 md:mb-5 text-[#6F8BA4] text-sm md:text-[16px] font-roboto'>
-                                A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.
-                            </p>
-                            <button className='uppercase text-white bg-[#E12454] px-6 md:px-8 text-xs md:text-sm font-exo font-bold py-2 md:p-3 rounded-full flex items-center gap-2 md:gap-3 hover:scale-105 transition-transform duration-300'>
-                                <Link to="/appoinment"> Make appointment </Link><i className='text-lg md:text-xl'><BiChevronRight /></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div className="absolute font-exo top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 max-w-[1140px]">
+      <div 
+        className="right-side py-12 md:py-24 w-full md:w-[570px] hover:scale-105 transition-transform duration-500"
+        data-aos="fade-right"
+      >
+        <div className="bg-[#E12454] w-10 h-1 mb-3"></div>
+        <span className="text-sm md:text-base text-slate-500 uppercase font-roboto">
+          Total Health care solution
+        </span>
+        <h1 className='capitalize my-3 md:my-5 text-3xl md:text-5xl lg:text-6xl font-bold font-exo text-[#223A66]'>
+          Your most trusted health partner
+        </h1>
+        <p className='pr-0 md:pr-10 mb-3 md:mb-5 text-[#6F8BA4] text-sm md:text-[16px] font-roboto'>
+          A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.
+        </p>
+        <button className='uppercase text-white bg-[#E12454] px-6 md:px-8 text-xs md:text-sm font-exo font-bold py-2 md:p-3 rounded-full flex items-center gap-2 md:gap-3 hover:scale-105 transition-transform duration-300'>
+          <Link to="/appoinment"> Make appointment </Link>
+          <i className='text-lg md:text-xl'><BiChevronRight /></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
             {/* Icon Cards */}
             <div className="flex flex-col md:flex-row gap-4 justify-center px-4 -mt-10 md:-mt-16">
