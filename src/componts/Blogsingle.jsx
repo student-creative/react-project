@@ -23,7 +23,7 @@ function Blogsingle() {
     return (
         <div>
             {/* Hero Section */}
-            <div className="background-image">
+            <div className="background-image w-screen overflow-x-hidden">
                 <div className="relative">
                     <img 
                         src={require('../img/back.png')} 

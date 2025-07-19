@@ -14,7 +14,7 @@ function Services() {
     }, []);
 
     return (
-        <div className="">
+        <div className="w-screen overflow-x-hidden">
             {/* Hero Section */}
             <div className="background-image">
                 <div className="relative">
