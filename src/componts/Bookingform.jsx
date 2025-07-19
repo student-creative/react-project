@@ -23,8 +23,23 @@ function BookingForm() {
   const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
-    const storedDepartments = JSON.parse(localStorage.getItem('departmentsData')) || [];
-    const storedDoctors = JSON.parse(localStorage.getItem('doctorsData')) || [];
+    let storedDepartments = JSON.parse(localStorage.getItem('departmentsData'));
+    let storedDoctors = JSON.parse(localStorage.getItem('doctorsData'));
+
+    if (!storedDepartments || storedDepartments.length === 0) {
+      storedDepartments = ['Cardiology', 'Neurology', 'Orthopedics', 'Pediatrics'];
+      localStorage.setItem('departmentsData', JSON.stringify(storedDepartments));
+    }
+
+    if (!storedDoctors || storedDoctors.length === 0) {
+      storedDoctors = [
+        { name: 'Dr. A Sharma' },
+        { name: 'Dr. B Verma' },
+        { name: 'Dr. C Iyer' },
+        { name: 'Dr. D Khan' },
+      ];
+      localStorage.setItem('doctorsData', JSON.stringify(storedDoctors));
+    }
 
     setDepartments(storedDepartments);
     setDoctors(storedDoctors);
@@ -39,10 +54,7 @@ function BookingForm() {
     e.preventDefault();
 
     const formattedTime = `${formData.hour}:${formData.minute} ${formData.ampm}`;
-    const formDataWithFormattedTime = {
-      ...formData,
-      time: formattedTime
-    };
+    const formDataWithFormattedTime = { ...formData, time: formattedTime };
 
     const userKey = `${formData.fullName}_${formData.phone}`;
     const existingBooking = localStorage.getItem(userKey);
@@ -83,15 +95,14 @@ function BookingForm() {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <ToastContainer position="top-center" autoClose={4000} />
-
-      <form ref={formRef} className="space-y-3 md:space-y-4 font-roboto" onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+      <form ref={formRef} className="space-y-4 font-roboto" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="relative">
             <select
               name="department"
               value={formData.department}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-slate-500 appearance-auto md:appearance-none"
+              className="w-full border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-slate-500 appearance-none"
               required
             >
               <option value="" disabled>Choose Department</option>
@@ -99,11 +110,6 @@ function BookingForm() {
                 <option key={index} value={dept}>{dept}</option>
               ))}
             </select>
-            <div className="absolute inset-y-0 right-3 hidden md:flex items-center pointer-events-none">
-              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
           </div>
 
           <div className="relative">
@@ -111,7 +117,7 @@ function BookingForm() {
               name="doctor"
               value={formData.doctor}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-slate-500 appearance-auto md:appearance-none"
+              className="w-full border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-slate-500 appearance-none"
               required
             >
               <option value="" disabled>Select Doctor</option>
@@ -119,21 +125,16 @@ function BookingForm() {
                 <option key={index} value={doc.name}>{doc.name}</option>
               ))}
             </select>
-            <div className="absolute inset-y-0 right-3 hidden md:flex items-center pointer-events-none">
-              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             type="date"
             name="date"
             value={formData.date}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded px-3 py-3 md:py-4 text-sm bg-[#F4F9FC] text-gray-700"
+            className="w-full border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700"
             required
           />
 
@@ -142,21 +143,20 @@ function BookingForm() {
               name="hour"
               value={formData.hour}
               onChange={handleChange}
-              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 appearance-auto md:appearance-none"
+              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 appearance-none"
               required
             >
               <option value="" disabled>HH</option>
-              {[...Array(12)].map((_, i) => {
-                const hour = i + 1;
-                return <option key={hour} value={hour}>{hour}</option>;
-              })}
+              {[...Array(12)].map((_, i) => (
+                <option key={i + 1} value={i + 1}>{i + 1}</option>
+              ))}
             </select>
 
             <select
               name="minute"
               value={formData.minute}
               onChange={handleChange}
-              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 appearance-auto md:appearance-none"
+              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 appearance-none"
               required
             >
               <option value="" disabled>MM</option>
@@ -169,7 +169,7 @@ function BookingForm() {
               name="ampm"
               value={formData.ampm}
               onChange={handleChange}
-              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 appearance-auto md:appearance-none"
+              className="w-1/3 border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC] text-gray-700 appearance-none"
               required
             >
               <option value="" disabled>AM/PM</option>
@@ -179,14 +179,14 @@ function BookingForm() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             type="text"
             name="fullName"
             value={formData.fullName}
             onChange={handleChange}
             placeholder="Full Name"
-            className="w-full border border-gray-300 rounded px-3 py-3 md:py-4 text-sm bg-[#F4F9FC]"
+            className="w-full border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC]"
             required
           />
           <input
@@ -195,7 +195,7 @@ function BookingForm() {
             value={formData.phone}
             onChange={handleChange}
             placeholder="Phone Number"
-            className="w-full border border-gray-300 rounded px-3 py-3 md:py-4 text-sm bg-[#F4F9FC]"
+            className="w-full border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC]"
             required
           />
         </div>
@@ -206,7 +206,7 @@ function BookingForm() {
           value={formData.email}
           onChange={handleChange}
           placeholder="Email Address"
-          className="w-full border border-gray-300 rounded px-3 py-3 md:py-4 text-sm bg-[#F4F9FC]"
+          className="w-full border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC]"
           required
         />
 
@@ -216,13 +216,13 @@ function BookingForm() {
           onChange={handleChange}
           rows="4"
           placeholder="Your Message"
-          className="w-full border border-gray-300 rounded px-3 py-3 md:py-4 text-sm bg-[#F4F9FC]"
+          className="w-full border border-gray-300 rounded px-3 py-3 text-sm bg-[#F4F9FC]"
         ></textarea>
 
         <div className="pt-2">
           <button
             type="submit"
-            className="w-full md:w-auto uppercase text-white p-3 md:p-4 px-6 md:px-8 font-exo text-xs md:text-[13px] font-bold rounded-full bg-[#223A66] hover:bg-[#E12454] transform duration-300"
+            className="w-full md:w-auto uppercase text-white p-3 px-6 text-xs font-bold rounded-full bg-[#223A66] hover:bg-[#E12454] transition-all duration-300"
           >
             Make an Appointment
           </button>
