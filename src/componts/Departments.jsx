@@ -19,10 +19,10 @@ function Departments() {
             {/* Hero Section */}
             <div className="background-image w-screen overflow-x-hidden">
                 <div className="relative">
-                    <img 
-                        src={require('../img/back.png')} 
-                        alt="Background" 
-                        className="w-full h-[200px] md:h-[324px] object-cover transition-all duration-500 hover:scale-105" 
+                    <img
+                        src={require('../img/back.png')}
+                        alt="Background"
+                        className="w-full h-[200px] md:h-[324px] object-cover transition-all duration-500 hover:scale-105"
                         data-aos="fade"
                     />
 
@@ -71,27 +71,27 @@ function Departments() {
                             { img: 'img5.jpg', title: 'Child care' },
                             { img: 'img6.jpg', title: 'Child care' }
                         ].map((item, index) => (
-                            <div 
-                                key={index} 
+                            <div
+                                key={index}
                                 className="card1 w-full h-auto px-2 sm:px-4 mb-8 sm:mb-10 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                                 data-aos="fade-up"
                                 data-aos-delay={index * 100}
                             >
-                                <img 
+                                <img
                                     className='w-full h-[200px] sm:h-[220px] md:h-[251px] object-cover rounded-lg transition-all duration-500 hover:scale-105'
-                                    src={require(`../img/${item.img}`)} 
-                                    alt={item.title} 
+                                    src={require(`../img/${item.img}`)}
+                                    alt={item.title}
                                 />
                                 <h4 className='font-exo font-bold text-lg md:text-xl mb-2 mt-4 hover:text-[#E12454] transition-colors duration-300'>{item.title}</h4>
                                 <p className='text-slate-500 text-sm md:text-base mb-4 md:mb-5 hover:text-[#223A66] transition-colors duration-300'>
                                     Saepe nulla praesentium eaque omnis perferendis a doloremque.
                                 </p>
-                                <a 
-                                    href="department-single.html" 
+                                <a
+                                    href="department-single.html"
                                     className="font-roboto font-semibold text-sm md:text-base inline-flex items-center gap-1 hover:text-[#E12454] transition-all duration-300 group"
                                 >
-                                    Learn More 
-                                    <i className='text-xl transform group-hover:translate-x-1 transition-all duration-300'><BiChevronRight/></i>
+                                    Learn More
+                                    <i className='text-xl transform group-hover:translate-x-1 transition-all duration-300'><BiChevronRight /></i>
                                 </a>
                             </div>
                         ))}
@@ -100,7 +100,7 @@ function Departments() {
             </div>
 
             {/* Footer */}
-            <Footer/>
+            <Footer />
         </div>
     )
 }

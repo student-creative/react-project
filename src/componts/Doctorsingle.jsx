@@ -22,7 +22,7 @@ function Doctorsingle() {
     }, []);
 
     return (
-        <div className="overflow-x-hidden w-screen overflow-x-hidden">
+        <div className=" w-screen overflow-x-hidden">
             {/* Hero Section */}
             <div className="background-image">
                 <div className="relative">

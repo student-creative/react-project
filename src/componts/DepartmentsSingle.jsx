@@ -21,10 +21,10 @@ function DepartmentsSingle() {
             {/* Hero Section */}
             <div className="background-image w-screen overflow-x-hidden">
                 <div className="relative">
-                    <img 
-                        src={require('../img/back.png')} 
-                        alt="Background" 
-                        className="w-full h-[200px] md:h-[324px] object-cover transition-all duration-500 hover:scale-105" 
+                    <img
+                        src={require('../img/back.png')}
+                        alt="Background"
+                        className="w-full h-[200px] md:h-[324px] object-cover transition-all duration-500 hover:scale-105"
                         data-aos="fade"
                     />
 
@@ -44,9 +44,9 @@ function DepartmentsSingle() {
                 <div className="container max-w-[1140px] mx-auto h-auto">
                     {/* Image */}
                     <div className="image rounded-lg overflow-hidden" data-aos="fade-up">
-                        <img 
-                            src={require('../img/services.jpg')} 
-                            alt="Department Services" 
+                        <img
+                            src={require('../img/services.jpg')}
+                            alt="Department Services"
                             className="w-full h-auto object-cover transition-all duration-500 hover:scale-105"
                         />
                     </div>
@@ -76,8 +76,8 @@ function DepartmentsSingle() {
                                     "Critical Care Medicine Specialists",
                                     "Emergency Assistance"
                                 ].map((item, index) => (
-                                    <div 
-                                        key={index} 
+                                    <div
+                                        key={index}
                                         className="flex items-center gap-2 md:gap-3 hover:translate-x-2 transition-transform duration-300"
                                         data-aos="fade-up"
                                         data-aos-delay={index * 100}
@@ -89,17 +89,17 @@ function DepartmentsSingle() {
                             </ul>
 
                             {/* Appointment Button */}
-                            <button 
+                            <button
                                 className='uppercase text-white bg-[#E12454] hover:bg-[#223A66] px-6 md:px-8 text-xs md:text-sm font-exo font-bold py-2 md:p-3 rounded-full flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-105'
                                 data-aos="fade-up"
                             >
-                                <Link to="/appoinment">Make an Appointment</Link> 
+                                <Link to="/appoinment">Make an Appointment</Link>
                                 <i className='text-lg md:text-xl transform hover:translate-x-1 transition-transform duration-300'><BiChevronRight /></i>
                             </button>
                         </div>
 
                         {/* Sidebar - Full width on mobile, 1/3 on desktop */}
-                        <div 
+                        <div
                             className="w-full lg:w-[33.333%] h-[330px] bg-[#F4F9FC] p-4 md:p-5 mt-6 lg:mt-10 rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                             data-aos="fade-up"
                             data-aos-delay="200"
@@ -112,8 +112,8 @@ function DepartmentsSingle() {
                                     { day: "Saturday", time: "9:00 - 16:00" },
                                     { day: "Sunday", time: "Closed" }
                                 ].map((item, index) => (
-                                    <li 
-                                        key={index} 
+                                    <li
+                                        key={index}
                                         className='flex justify-between py-1 md:py-2 text-sm md:text-base hover:text-[#E12454] transition-colors duration-300'
                                     >
                                         <span>{item.day}</span>

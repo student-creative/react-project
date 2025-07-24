@@ -16,6 +16,13 @@ function Navbar() {
     AOS.init({ duration: 800, once: true });
   }, []);
 
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setShowDropdown(false);
+    setShowDoctorDropdown(false);
+    setShowBlogDropdown(false);
+  };
+
   return (
     <div className="relative z-40">
       {/* Top Bar */}
@@ -60,8 +67,8 @@ function Navbar() {
 
               {/* Department Dropdown */}
               <li className="relative group"
-                  onMouseEnter={() => setShowDropdown(true)}
-                  onMouseLeave={() => setShowDropdown(false)}>
+                onMouseEnter={() => setShowDropdown(true)}
+                onMouseLeave={() => setShowDropdown(false)}>
                 <div className="flex items-center gap-1 hover:text-[#E12454] cursor-pointer">
                   <span className='font-exo font-semibold'>Department</span>
                   <BiChevronDown />
@@ -76,8 +83,8 @@ function Navbar() {
 
               {/* Doctor Dropdown */}
               <li className="relative group"
-                  onMouseEnter={() => setShowDoctorDropdown(true)}
-                  onMouseLeave={() => setShowDoctorDropdown(false)}>
+                onMouseEnter={() => setShowDoctorDropdown(true)}
+                onMouseLeave={() => setShowDoctorDropdown(false)}>
                 <div className="flex items-center gap-1 hover:text-[#E12454] cursor-pointer">
                   <span className='font-exo font-semibold'>Doctor</span>
                   <BiChevronDown />
@@ -93,8 +100,8 @@ function Navbar() {
 
               {/* Blog Dropdown */}
               <li className="relative group"
-                  onMouseEnter={() => setShowBlogDropdown(true)}
-                  onMouseLeave={() => setShowBlogDropdown(false)}>
+                onMouseEnter={() => setShowBlogDropdown(true)}
+                onMouseLeave={() => setShowBlogDropdown(false)}>
                 <div className="flex items-center gap-1 hover:text-[#E12454] cursor-pointer">
                   <span className='font-exo font-semibold'>Blog</span>
                   <BiChevronDown />
@@ -116,9 +123,9 @@ function Navbar() {
       {/* Mobile Menu with Dropdowns */}
       <div className={`md:hidden bg-white shadow-lg w-full absolute z-[999] transition-all duration-300 ${mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <ul className="p-4 font-exo font-semibold space-y-4">
-          <li><Link to="/" className="block py-2 hover:text-[#E12454]">Home</Link></li>
-          <li><Link to="/about" className="block py-2 hover:text-[#E12454]">About</Link></li>
-          <li><Link to="/services" className="block py-2 hover:text-[#E12454]">Services</Link></li>
+          <li><Link to="/" onClick={closeMobileMenu} className="block py-2 hover:text-[#E12454]">Home</Link></li>
+          <li><Link to="/about" onClick={closeMobileMenu} className="block py-2 hover:text-[#E12454]">About</Link></li>
+          <li><Link to="/services" onClick={closeMobileMenu} className="block py-2 hover:text-[#E12454]">Services</Link></li>
 
           {/* Department Mobile Dropdown */}
           <li>
@@ -128,8 +135,8 @@ function Navbar() {
             </div>
             {showDropdown && (
               <ul className="ml-4 text-sm space-y-2">
-                <li><Link to="/departments" className="block hover:text-[#E12454]">Departments</Link></li>
-                <li><Link to="/departmentssingle" className="block hover:text-[#E12454]">Departments Single</Link></li>
+                <li><Link to="/departments" onClick={closeMobileMenu} className="block hover:text-[#E12454]">Departments</Link></li>
+                <li><Link to="/departmentssingle" onClick={closeMobileMenu} className="block hover:text-[#E12454]">Departments Single</Link></li>
               </ul>
             )}
           </li>
@@ -142,9 +149,9 @@ function Navbar() {
             </div>
             {showDoctorDropdown && (
               <ul className="ml-4 text-sm space-y-2">
-                <li><Link to="/doctor" className="block hover:text-[#E12454]">Doctor</Link></li>
-                <li><Link to="/doctorsingle" className="block hover:text-[#E12454]">Doctor Single</Link></li>
-                <li><Link to="/appoinment" className="block hover:text-[#E12454]">Appoinment</Link></li>
+                <li><Link to="/doctor" onClick={closeMobileMenu} className="block hover:text-[#E12454]">Doctor</Link></li>
+                <li><Link to="/doctorsingle" onClick={closeMobileMenu} className="block hover:text-[#E12454]">Doctor Single</Link></li>
+                <li><Link to="/appoinment" onClick={closeMobileMenu} className="block hover:text-[#E12454]">Appoinment</Link></li>
               </ul>
             )}
           </li>
@@ -157,13 +164,13 @@ function Navbar() {
             </div>
             {showBlogDropdown && (
               <ul className="ml-4 text-sm space-y-2">
-                <li><Link to="/blogslidebar" className="block hover:text-[#E12454]">Blog With Slider</Link></li>
-                <li><Link to="/blogsingle" className="block hover:text-[#E12454]">Blog Single</Link></li>
+                <li><Link to="/blogslidebar" onClick={closeMobileMenu} className="block hover:text-[#E12454]">Blog With Slider</Link></li>
+                <li><Link to="/blogsingle" onClick={closeMobileMenu} className="block hover:text-[#E12454]">Blog Single</Link></li>
               </ul>
             )}
           </li>
 
-          <li><Link to="/contact" className="block py-2 hover:text-[#E12454]">Contact</Link></li>
+          <li><Link to="/contact" onClick={closeMobileMenu} className="block py-2 hover:text-[#E12454]">Contact</Link></li>
         </ul>
       </div>
     </div>

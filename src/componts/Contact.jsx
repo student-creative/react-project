@@ -46,7 +46,7 @@ function Contact() {
       <ToastContainer position="top-right" autoClose={2000} hideProgressBar />
 
       {/* Hero Section */}
-      <div className="background-image">
+      <div className="background-image w-screen overflow-x-hidden">
         <div className="relative" data-aos="fade-down">
           <img
             src={require('../img/back.png')}

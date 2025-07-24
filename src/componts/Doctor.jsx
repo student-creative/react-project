@@ -12,8 +12,8 @@ function Doctor() {
   const [selectedDept, setSelectedDept] = useState("All Department");
 
   useEffect(() => {
-    AOS.init({ 
-      duration: 1000, 
+    AOS.init({
+      duration: 1000,
       once: true,
       offset: 50
     });
@@ -51,16 +51,16 @@ function Doctor() {
     <div>
 
       {/* Hero Section */}
-      <div className="background-image w-screen overflow-x-hidden">
+      <div className=" w-screen overflow-x-hidden">
         <div className="relative">
-          <img 
-            src={require('../img/back.png')} 
-            alt="Background" 
-            className="w-full h-[200px] md:h-[324px] object-cover transition-all duration-500 hover:scale-105" 
+          <img
+            src={require('../img/back.png')}
+            alt="Background"
+            className="w-full h-[200px] md:h-[324px] object-cover transition-all duration-500 hover:scale-105"
           />
           <div className="absolute inset-0 bg-[#223A66] opacity-90 hover:opacity-85 transition-opacity duration-300"></div>
 
-          <div 
+          <div
             className="absolute inset-0 flex flex-col items-center justify-center text-center capitalize font-exo"
             data-aos="fade-down"
           >
@@ -76,7 +76,7 @@ function Doctor() {
 
           {/* Title */}
           <div className="flex justify-center">
-            <div 
+            <div
               className="w-full md:w-[655px] h-auto text-center space-y-5 md:space-y-7 px-4 mb-10 md:mb-20"
               data-aos="zoom-in"
             >
@@ -99,11 +99,10 @@ function Doctor() {
                 <li
                   key={index}
                   onClick={() => setSelectedDept(dept)}
-                  className={`p-2 md:p-3 cursor-pointer rounded transition-all duration-300 ${
-                    selectedDept === dept 
-                      ? 'bg-[#E12454] text-white shadow-lg' 
+                  className={`p-2 md:p-3 cursor-pointer rounded transition-all duration-300 ${selectedDept === dept
+                      ? 'bg-[#E12454] text-white shadow-lg'
                       : 'bg-white hover:bg-[#E12454] hover:text-white hover:shadow-md'
-                  }`}
+                    }`}
                 >
                   {dept}
                 </li>
@@ -112,20 +111,20 @@ function Doctor() {
           </div>
 
           {/* Doctor Cards */}
-          <div 
+          <div
             className="mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
             data-aos="fade-up"
           >
             {filteredDoctors.map((doc, index) => (
-              <div 
-                key={`${doc.name}-${index}`} 
+              <div
+                key={`${doc.name}-${index}`}
                 className="bg-white text-center rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={doc.image} 
+                  <img
+                    src={doc.image}
                     alt={doc.name}
                     className="w-full h-48 md:h-56 object-cover transition-all duration-500 group-hover:scale-110"
                   />
@@ -147,9 +146,9 @@ function Doctor() {
 
       {/* Banner Section */}
       <div className="relative w-full h-auto" data-aos="zoom-in-up">
-        <img 
-          src={require('../img/banner.jpg')} 
-          alt="Health banner" 
+        <img
+          src={require('../img/banner.jpg')}
+          alt="Health banner"
           className="w-full h-auto object-cover transition-all duration-500 hover:brightness-90"
         />
         <div className="container max-w-[1140px] mx-auto absolute top-0 left-0 right-0 py-12 md:py-20 px-4">
@@ -158,10 +157,10 @@ function Doctor() {
             <h2 className="font-exo font-bold text-3xl md:text-5xl text-black mb-4 hover:text-[#E12454] transition-colors duration-300">
               We are pleased to offer you the <span className="text-[#223A66] hover:text-[#E12454] transition-colors duration-300">chance to have the healthy</span>
             </h2>
-            <button 
+            <button
               className='uppercase text-white p-3 md:p-4 px-6 md:px-10 font-exo text-xs md:text-sm font-bold rounded-full bg-[#E12454] hover:bg-[#223A66] hover:shadow-lg hover:scale-105 transition-all duration-300'
             >
-               <Link to="/appoinment">get appointment</Link>
+              <Link to="/appoinment">get appointment</Link>
             </button>
           </div>
         </div>
