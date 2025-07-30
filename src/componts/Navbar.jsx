@@ -22,6 +22,7 @@ function Navbar() {
     setShowDoctorDropdown(false);
     setShowBlogDropdown(false);
   };
+  
 
   return (
     <div className="relative z-40">

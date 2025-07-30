@@ -14,10 +14,10 @@ const Login = () => {
       alert('❌ Invalid email or password');
     }
   };
-
+  
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      handleLogin();
+      handleLogin();  
     }
   };
 
